@@ -1,2 +1,2 @@
 # watchdog
-The role and power gate
+Rewrite Laravel AuthServiceProvider

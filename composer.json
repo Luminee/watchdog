@@ -1,0 +1,26 @@
+{
+	"name": "luminee/watchdog",
+	"description": "Rewrite Laravel AuthServiceProvider",
+	"keywords": [
+		"gate",
+		"watchdog",
+		"auth",
+		"laravel",
+		"luminee"
+	],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "LuminEe",
+			"email": "luminee@qq.com"
+		}
+	],
+	"require": {
+		"php": ">=5.5.9"
+	},
+	"autoload": {
+		"psr-4": {
+			"Luminee\\Watchdog\\": "src/"
+		}
+	}
+}
