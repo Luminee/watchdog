@@ -38,7 +38,7 @@ class WatchdogMigrateCommand extends Command
      */
     public function handle()
     {
-        $this->call('migrate', ['--path' => __DIR__.'/../../Database/migrations']);
+        $this->call('migrate', ['--path' => 'vendor/luminee/watchdog/src/Database/migrations']);
         $this->info('Watchdog Migrate Has Done! ^_^');
     }
     

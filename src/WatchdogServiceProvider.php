@@ -13,7 +13,7 @@ class WatchdogServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-//        $this->publishes([realpath(__DIR__.'/../config/escalator.php') => config_path('escalator.php')]);
+        $this->publishes([realpath(__DIR__.'/../config/watchdog.php') => config_path('watchdog.php')]);
     }
     
     /**
@@ -29,6 +29,6 @@ class WatchdogServiceProvider extends ServiceProvider
     
         $this->commands('command.watchdog.migrate');
         
-//        $this->mergeConfigFrom(realpath(__DIR__.'/../config/escalator.php'), 'escalator');
+        $this->mergeConfigFrom(realpath(__DIR__.'/../config/watchdog.php'), 'watchdog');
     }
 }

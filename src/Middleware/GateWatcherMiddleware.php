@@ -3,17 +3,10 @@
 namespace Luminee\Watchdog\Middleware;
 
 use Closure;
-use Illuminate\Foundation\Testing\HttpException;
-use Luminee\Watchdog\Model\Power;
-use Luminee\Watchdog\Model\AccountRole;
+use Luminee\Watchdog\Judgement;
 
 class GateWatcherMiddleware
 {
-    protected $ignore_route
-        = [
-        
-        ];
-    
     /**
      * Handle an incoming request.
      *
@@ -23,18 +16,11 @@ class GateWatcherMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $route = substr($request->getRequestUri(), 1);
-        if (in_array($route, $this->ignore_route)) {
+        if (in_array($request->getRequestUri(), config('watchdog.ignore_route'))) {
             return $next($request);
         }
-        if (empty($power = Power::where('route', $route)->first())) {
-            throw new HttpException('Route has not bind to operation');
-        }
-        $power_ids = AccountRole::with('role')->where('account_id', $this->getAccountId())->first()->role->power_ids;
-        if ($power_ids == 0 || in_array($power->id, explode(',', $power_ids))) {
-            return $next($request);
-        }
-        throw new HttpException('Operation not allowed');
+        Judgement::judgement($request->getRequestUri(), $this->getAccountId());
+        return $next($request);
     }
     
     protected function getAccountId()
