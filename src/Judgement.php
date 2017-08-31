@@ -2,9 +2,9 @@
 
 namespace Luminee\Watchdog;
 
-use Illuminate\Foundation\Testing\HttpException;
 use Luminee\Watchdog\Model\Power;
 use Luminee\Watchdog\Model\AccountRole;
+use Illuminate\Foundation\Testing\HttpException;
 
 class Judgement
 {

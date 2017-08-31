@@ -16,16 +16,17 @@ class GateWatcherMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (in_array($request->getRequestUri(), config('watchdog.ignore_route'))) {
+        $route = \Route::getRoutes()->match($request)->getUri();
+        if (in_array($route, config('watchdog.ignore_route'))) {
             return $next($request);
         }
-        Judgement::judgement($request->getRequestUri(), $this->getAccountId());
+        Judgement::judgement($route, $this->getAccountId());
         return $next($request);
     }
-    
+
     protected function getAccountId()
     {
         return $account_id = 1;
     }
-    
+
 }
