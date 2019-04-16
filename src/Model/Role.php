@@ -2,12 +2,10 @@
 
 namespace Luminee\Watchdog\Model;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Role extends Model
+class Role extends _BaseModel
 {
     protected $table = 'watchdog_role';
-    
-    protected $fillable = ['label', 'power_ids', 'is_active'];
-    
+
+    protected $fillable = ['code', 'label', 'is_active', 'sort'];
+
 }

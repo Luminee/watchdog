@@ -18,6 +18,8 @@ class WatchdogAccountRole extends Migration
             $table->integer('account_id');
             $table->integer('role_id');
             $table->timestamps();
+
+            $table->index('account_id');
         });
     }
 

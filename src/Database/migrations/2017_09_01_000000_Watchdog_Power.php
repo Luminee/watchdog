@@ -15,14 +15,16 @@ class WatchdogPower extends Migration
         Schema::create('watchdog_power', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('group');
-            $table->string('group_label');
-            $table->string('module');
-            $table->string('module_label');
-            $table->string('operation')->unique();
-            $table->string('operation_label');
-            $table->string('route')->unique();
+            $table->integer('group_id');
+            $table->string('action');
+            $table->string('label');
+            $table->string('route');
+            $table->decimal('sort', 15, 8);
             $table->timestamps();
+
+            $table->index('group_id');
+            $table->unique('action');
+            $table->unique('route');
         });
     }
 

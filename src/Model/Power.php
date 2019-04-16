@@ -2,12 +2,15 @@
 
 namespace Luminee\Watchdog\Model;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Power extends Model
+class Power extends _BaseModel
 {
     protected $table = 'watchdog_power';
-    
-    protected $fillable = ['group', 'group_label', 'module', 'module_label', 'operation', 'operation_label','route'];
-    
+
+    protected $fillable = ['group_id', 'action', 'label', 'route', 'sort'];
+
+    public function group()
+    {
+        return $this->belongsTo('Luminee\Watchdog\Model\Group', 'group_id', 'id');
+    }
+
 }

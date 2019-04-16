@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class WatchdogRole extends Migration
+class WatchdogRolePower extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,14 @@ class WatchdogRole extends Migration
      */
     public function up()
     {
-        Schema::create('watchdog_role', function (Blueprint $table) {
+        Schema::create('watchdog_role_power', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('code');
-            $table->string('label');
-            $table->boolean('is_active');
-            $table->decimal('sort', 15, 8);
+            $table->integer('role_id');
+            $table->integer('power_id');
             $table->timestamps();
+
+            $table->index('power_id');
         });
     }
 
