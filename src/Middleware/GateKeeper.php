@@ -11,6 +11,8 @@ class GateKeeper
 {
     protected $power_ids;
 
+    protected $route = '';
+
     /**
      * @param $request
      * @param $account_id
@@ -19,9 +21,11 @@ class GateKeeper
      */
     public function check($request, $account_id)
     {
-        $router = \Route::getRoutes()->match($request);
-        $route = implode('|', $router->methods()) . '@' . $router->uri();
-        if (in_array($route, config('watchdog.ignore_route'))) {
+        if (empty($this->route)) {
+            $router = \Route::getRoutes()->match($request);
+            $this->route = implode('|', $router->methods()) . '@' . $router->uri();
+        }
+        if (in_array($this->route, config('watchdog.ignore_route'))) {
             return true;
         }
         $role_ids = $this->getRole($account_id);
@@ -29,7 +33,13 @@ class GateKeeper
             return true;
         }
         $this->power_ids = $this->getPowers($role_ids, $account_id);
-        return Judgement::judgement($route, $this->power_ids);
+        return Judgement::judgement($this->route, $this->power_ids);
+    }
+
+    protected function setRoute($route)
+    {
+        $this->route = $route;
+        return $this;
     }
 
     protected function getRole($account_id)
