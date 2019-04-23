@@ -22,5 +22,12 @@
 		"psr-4": {
 			"Luminee\\Watchdog\\": "src/"
 		}
+	},
+	"extra": {
+		"laravel": {
+			"providers": [
+				"Luminee\\Watchdog\\WatchdogServiceProvider"
+			]
+		}
 	}
 }
