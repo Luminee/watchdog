@@ -23,12 +23,6 @@ class WatchdogServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('command.watchdog.migrate', function () {
-            return new \Luminee\Watchdog\Console\Commands\WatchdogMigrateCommand();
-        });
-    
-        $this->commands('command.watchdog.migrate');
-        
         $this->mergeConfigFrom(realpath(__DIR__.'/../config/watchdog.php'), 'watchdog');
     }
 }

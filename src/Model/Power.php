@@ -2,7 +2,9 @@
 
 namespace Luminee\Watchdog\Model;
 
-class Power extends _BaseModel
+use Luminee\Base\Models\BaseModel;
+
+class Power extends BaseModel
 {
     protected $table = 'watchdog_power';
 

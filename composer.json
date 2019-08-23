@@ -1,6 +1,7 @@
 {
 	"name": "luminee/watchdog",
 	"description": "Rewrite Laravel AuthServiceProvider",
+	"type": "library",
 	"keywords": [
 		"gate",
 		"watchdog",
@@ -16,7 +17,9 @@
 		}
 	],
 	"require": {
-		"php": ">=5.5.9"
+		"php": ">=5.5.9",
+		"laravel/framework": "5.1.x|5.5.x",
+		"luminee/laravel-base": "*"
 	},
 	"autoload": {
 		"psr-4": {
@@ -29,5 +32,6 @@
 				"Luminee\\Watchdog\\WatchdogServiceProvider"
 			]
 		}
-	}
+	},
+	"minimum-stability": "dev"
 }

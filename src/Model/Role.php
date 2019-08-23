@@ -2,7 +2,9 @@
 
 namespace Luminee\Watchdog\Model;
 
-class Role extends _BaseModel
+use Luminee\Base\Models\BaseModel;
+
+class Role extends BaseModel
 {
     protected $table = 'watchdog_role';
 

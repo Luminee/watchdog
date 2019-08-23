@@ -2,7 +2,9 @@
 
 namespace Luminee\Watchdog\Model;
 
-class AccountLevel extends _BaseModel
+use Luminee\Base\Models\BaseModel;
+
+class AccountLevel extends BaseModel
 {
     protected $table = 'watchdog_account_level';
 
