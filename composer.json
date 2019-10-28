@@ -18,8 +18,8 @@
 	],
 	"require": {
 		"php": ">=5.5.9",
-		"laravel/framework": "5.1.x|5.5.x",
-		"luminee/laravel-base": "*"
+		"laravel/framework": "~5.1",
+		"luminee/laravel-base": "~0.1"
 	},
 	"autoload": {
 		"psr-4": {
