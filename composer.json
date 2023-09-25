@@ -17,9 +17,8 @@
 		}
 	],
 	"require": {
-		"php": ">=5.5.9",
-		"laravel/framework": ">=5.1",
-		"luminee/laravel-base": "~0.1"
+		"laravel/framework": ">=10.10",
+		"luminee/laravel-base": ">=0.2.0"
 	},
 	"autoload": {
 		"psr-4": {
